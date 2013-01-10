@@ -1,0 +1,91 @@
+<!--*********************  CustomOreGen IndustrialCraft Ores Module ******************************
+*
+*   This file contains Presets, Options, and Distributions for the 3 IndustrialCraft^2 ores:
+*       Copper, Tin, and Uranium.
+*
+***********************************************************************************************-->
+<ConfigSection>
+  <Substitute name='FTBSandSubstitute' block='sand'>
+    <Replaces block='247' />
+  </Substitute>
+
+  <!-- Clear out all the TE ores -->
+  <Substitute name='FTBOreSubstitue' block='stone'>
+    <!-- TE ore gen -->
+    <Replaces block='2001:0' />
+    <Replaces block='2001:1' />
+
+    <!-- Xytech -->
+    <Replaces block='220:0' />
+    <Replaces block='220:1' />
+    <Replaces block='220:2' />
+    <Replaces block='220:3' />
+    <Replaces block='220:4' />
+    <Replaces block='220:5' />
+    <Replaces block='221' />
+
+    <!-- Traincraft -->
+    <Replaces block='246' />
+    <Replaces block='247' />
+  </Substitute>
+
+  <StandardGen name='FTBCopperStandard' block='2001:0' inherits='PresetStandardGen'>
+    <Setting name='Size' avg='9' range='3' />
+    <Setting name='Frequency' avg='7' range='3'/>
+    <Setting name='Height' avg=':= 55/64 * dimension.groundLevel' range=':= 15/64 * dimension.groundLevel' type='normal'/>
+  </StandardGen>
+
+  <StandardGen name='FTBTinStandard' block='2001:1' inherits='PresetStandardGen'>
+    <Setting name='Size' avg='7' range='5' />
+    <Setting name='Frequency' avg='11' range='3' />
+    <Setting name='Height' avg=':= 38/64 * dimension.groundLevel' range=':= 15/64 * dimension.groundLevel' type='uniform'/>
+  </StandardGen>
+
+  <Veins name='FTBXycraft0' block='220:0' inherits='PresetSparseVeins' />
+  <Veins name='FTBXycraft1' block='220:1' inherits='PresetSparseVeins' />
+  <Veins name='FTBXycraft2' block='220:2' inherits='PresetSparseVeins' />
+  <Veins name='FTBXycraft3' block='220:3' inherits='PresetSparseVeins' />
+  <Veins name='FTBXycraft4' block='220:4' inherits='PresetSparseVeins' />
+  <StandardGen name='FTBXycraftAluminum' block='220:5' inherits='PresetStandardGen'>
+    <Setting name='Size' avg='5' range='3' />
+    <Setting name='Frequency' avg='11' range='3'/>
+    <Setting name='Height' avg=':= 30/64 * dimension.groundLevel' range=':= 20/64 * dimension.groundLevel' type='normal'/>
+  </StandardGen>
+
+  <StandardGen name='FTBQuartz' block='221' inherits='PresetStandardGen'>
+	<Setting name='Size' avg='1' /> 
+	<Setting name='Frequency' avg='3' range='4.5'/>
+	<Setting name='Height' avg=':= 32/64 * dimension.groundLevel' range=':= 32/64 * dimension.groundLevel' type='uniform'/> 
+  </StandardGen>
+
+  <StandardGen name='FTBUranium' block='blockOreUran' inherits='PresetStandardGen'> 
+	<Setting name='Size' avg='2' /> 
+	<Setting name='Frequency' avg='5' range='3'/>
+	<Setting name='Height' avg=':= 32/64 * dimension.groundLevel' range=':= 32/64 * dimension.groundLevel' type='uniform'/> 
+  </StandardGen>
+
+  <Cloud name='CrudeOil' block='246' inherits='PresetStrategicCloud'>
+    <Description>
+      Diffuse crude oil cloud surrounded by single-block "hint" veins, found in swamps.
+    </Description>
+    <Setting name='DistributionFrequency' avg=':= 0.25 * _default_'/>
+    <Setting name='OreDensity' avg=':= 0.25 * _default_'/>
+    <Biome name='Swampland'/>
+    <Biome name='Green\s*Swamplands'/>
+    <Comment> ExtraBiomesXL </Comment>
+    <Veins name='CrudeOilHintVeins' block='246' inherits='PresetHintVeins'>
+      <DrawWireframe>:=drawWireframes</DrawWireframe>
+      <WireframeColor>0x60101010</WireframeColor>
+      <Setting name='MotherlodeFrequency' avg=':= 1.2 * _default_' range=':= _default_'/>
+      <Setting name='MotherlodeRangeLimit' avg=':= 1 * _default_' range=':= 1 * _default_'/>
+    </Veins>
+  </Cloud>
+
+  <Veins name='SandOil' block='247' inherits='PresetSparseVeins'>
+    <Setting name='MotherlodeHeight' avg=':= 63/64 * dimension.groundLevel' range=':= 5/64 * dimension.groundLevel' type='normal'/>
+    <Setting name='OreDensity' avg='0.04' range='0'/>
+    <Replaces block='sand' weight='0.5' />
+    <Replaces block='sandstone' />
+  </Veins>
+
+</ConfigSection>
